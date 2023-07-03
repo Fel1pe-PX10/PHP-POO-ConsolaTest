@@ -29,4 +29,23 @@ class Post{
         return $this->mensaje;
     }
 
+    public function getLikes(){
+        return $this->likes;
+    }
+
+    protected function checkIfUserLiked(User $user):bool{
+        $found = array_filter(
+            $this->likes,
+            function(Like $like) use ($user){
+                return $like->getUser()->getId() === $user->getId();
+            }
+        );
+
+        return count($found) === 1;
+    }
+
+    public function addLike() {
+        
+    }
+
 }
