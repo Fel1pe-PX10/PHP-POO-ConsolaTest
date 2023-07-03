@@ -44,8 +44,21 @@ class Post{
         return count($found) === 1;
     }
 
-    public function addLike() {
-        
+    public function addLike(User $user) {
+        if($this->checkIfUserLiked($user)){
+            $this->removeLike($user);
+        }
+        else{
+            $like = new Like($user);
+            array_push($this->likes, $user);
+        }
+    }
+
+    private function removeLike(User $user){
+        $this->likes = array_filter(
+            $this->likes,
+            fn (Like $like) => $like->getUser()->getId() !== $user->getId()
+        );
     }
 
 }
