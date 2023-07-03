@@ -52,4 +52,9 @@ $maira->addFollower($lena);
 print_r(User::showProfile($marcos));
 print_r(User::showProfile($lena));
 print_r(User::showProfile($omar));
-print_r(User::showProfile($maira));
+print_r(User::showProfile($maira)); 
+
+print_r($marcosPost->toString());
+print_r($lenaPost->toString());
+print_r($omarPost->toString());
+print_r($mairaPost->toString());

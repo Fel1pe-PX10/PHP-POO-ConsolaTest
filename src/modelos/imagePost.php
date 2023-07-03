@@ -13,10 +13,10 @@ class ImagePost extends Post implements IPost{
     }
 
     public function toString():string{
-        $info = "Id: {$this->getId()} \n";
-        $info .= "Mensaje: {$this->getMensaje()}\n";
-        $info .= "Imagen: {$this->getImagen()}\n\n";
-        $info .= "Likes: ".count($this->getLikes())."\n\n";
+        $info = "id: ". $this->getId()." \n";
+        $info .= "Mensaje: ".$this->getMensaje()." \n";
+        $info .= "Imagen: ".$this->getImagen()." \n\n";
+        $info .= "Likes: " . count($this->getLikes()) . "\n\n";
 
         return $info;
     }

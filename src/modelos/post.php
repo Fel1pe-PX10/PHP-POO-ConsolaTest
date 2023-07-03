@@ -9,16 +9,18 @@ class Post{
     private string $id;
     private array $likes;
 
-    public function __construct(private string $mensaje){
+    public function __construct(private string $mensaje)
+    {
+        print_r("Se creó un nuevo objeto Post \n");
         $this->id = UUID::generate();
         $this->likes = [];
     }
 
     protected function saludo(){
-        return "Hola desde este metodo, id $this->id";
+        return "Hola desde este post, con id $this->id";
     }
 
-    public function getId(): string{
+    public function getId():string{
         return $this->id;
     }
 
@@ -26,7 +28,7 @@ class Post{
         $this->id = $id;
     }
 
-    public function getMensaje():string {
+    public function getMensaje(){
         return $this->mensaje;
     }
 
@@ -41,25 +43,22 @@ class Post{
                 return $like->getUser()->getId() === $user->getId();
             }
         );
-
         return count($found) === 1;
     }
 
-    public function addLike(User $user) {
+    public function addLike(User $user){
         if($this->checkIfUserLiked($user)){
             $this->removeLike($user);
-        }
-        else{
+        }else{
             $like = new Like($user);
-            array_push($this->likes, $user);
+            array_push($this->likes, $like); 
         }
     }
 
-    private function removeLike(User $user){
+    public function removeLike(User $user){
         $this->likes = array_filter(
             $this->likes,
             fn (Like $like) => $like->getUser()->getId() !== $user->getId()
         );
     }
-
 }

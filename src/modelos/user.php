@@ -30,7 +30,7 @@ class User{
     }
 
     public function publish(Post $post){
-        array_push($this->post, $post);
+        \array_push($this->post, $post);
     }
 
     public function getPost(){
@@ -57,7 +57,7 @@ class User{
     }
 
     public function addFollower(User $user){
-        if($this->hasFollower($user)){
+        if(!$this->hasFollower($user)){
             if($this->id === $user->id)
                 print_r("No te puedes agregar a ti mismo como follower");
             else
