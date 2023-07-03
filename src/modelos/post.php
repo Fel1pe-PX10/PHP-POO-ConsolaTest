@@ -11,6 +11,7 @@ class Post{
 
     public function __construct(private string $mensaje){
         $this->id = UUID::generate();
+        $this->likes = [];
     }
 
     protected function saludo(){

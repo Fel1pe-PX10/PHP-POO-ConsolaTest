@@ -2,8 +2,6 @@
 
 namespace Felip\Poo\modelos;
 
-use IPost;
-
 class VideoPost extends Post implements IPost{
 
     public function __construct(private string $mensaje, private string $video){

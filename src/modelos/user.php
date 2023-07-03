@@ -30,7 +30,7 @@ class User{
     }
 
     public function publish(Post $post){
-        \array_push($this->post, $post);
+        array_push($this->post, $post);
     }
 
     public function getPost(){
