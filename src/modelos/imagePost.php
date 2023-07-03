@@ -8,7 +8,7 @@ class ImagePost extends Post{
         parent::__construct($mensaje);
     }
 
-    public function getMensajeImagePost(){
-        return $this->saludo();
+    public function getImagen():string{
+        return $this->image;
     }
 }

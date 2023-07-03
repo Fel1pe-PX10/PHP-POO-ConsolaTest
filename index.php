@@ -13,4 +13,3 @@ $objetoImagen = new ImagePost('Foto vacaciones', 'foto.jpg');
 // echo $miObjeto->getId();
 
 echo $miObjeto->getMensaje();
-echo $objetoImagen->getMensajeImagePost();
